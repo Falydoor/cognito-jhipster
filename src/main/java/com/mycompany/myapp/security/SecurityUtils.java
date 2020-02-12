@@ -89,6 +89,11 @@ public final class SecurityUtils {
     }
 
     @SuppressWarnings("unchecked")
+    public static Collection<? extends GrantedAuthority> extractAuthorityFromAttributes(Map<String, Object> attributes) {
+        return mapRolesToGrantedAuthorities((Collection<String>) attributes.getOrDefault("cognito:groups", new ArrayList<>()));
+    }
+
+    @SuppressWarnings("unchecked")
     private static Collection<String> getRolesFromClaims(Map<String, Object> claims) {
         return (Collection<String>) claims.getOrDefault("groups",
             claims.getOrDefault("roles", new ArrayList<>()));
