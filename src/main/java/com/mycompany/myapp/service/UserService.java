@@ -256,6 +256,8 @@ public class UserService {
             user.setImageUrl((String) details.get("picture"));
         }
         user.setActivated(true);
+        // Override login with email
+        user.setLogin(user.getEmail());
         return user;
     }
 
