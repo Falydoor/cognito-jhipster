@@ -106,11 +106,11 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/auth/realms/jhipster
+            issuer-uri: COGNITO_POOL_ID
         registration:
           oidc:
-            client-id: web_app
-            client-secret: web_app
+            client-id: COGNITO_ID
+            client-secret: COGNITO_SECRET
 
 server:
   servlet:
